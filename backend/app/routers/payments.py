@@ -191,7 +191,7 @@ def confirm_payment(
         ) from error
 
     # Validate PaymentIntent metadata.
-    metadata = dict(intent.metadata)
+    metadata = intent.metadata.to_dict()
 
     if (
         str(metadata.get("order_id")) != str(order.id)
